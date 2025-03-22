@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Event Manager</title>
+    <meta name="description" content="Personal Event Manager - All your productivity tools in one place" />
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/cards.css">
+    <link rel="stylesheet" href="src/styles/modal.css">
+    <link rel="stylesheet" href="src/styles/themes.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="container">
+          <h1>Personal Dashboard</h1>
+          <div class="theme-toggle">
+            <button id="theme-button" class="theme-button" aria-label="Change theme">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M8 7V7c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v0"></path><path d="M16 17v0c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2v0"></path><path d="M2 9v6c0 1.1.9 2 2 2h1"></path><path d="M22 9v6c0 1.1-.9 2-2 2h-1"></path><path d="M18 22V2"></path><path d="M6 22V2"></path></svg>
+              <div id="theme-popup" class="theme-popup">
+                <div id="theme-selector" class="theme-selector"></div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Favorite Image Section 
+      <section class="favorite-image-section">
+        <div class="container">
+          <h2>💖 "Treasured Clicks"</h2>
+          <div class="favorite-image-container">
+            <img id="favorite-image" class="favorite-image" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" alt="Your favorite image">
+          </div>
+          <div class="image-upload-form">
+            <label for="image-upload" class="custom-file-upload">
+              Choose Image
+            </label>
+            <input id="image-upload" type="file" accept="image/*">
+            <button id="save-image" class="upload-btn" disabled>Save</button>
+          </div>
+        </div>
+      </section>-->
+
+      <main class="dashboard">
+        <div class="container">
+          <div class="cards-grid">
+            <!-- Todo Card -->
+            <div class="card" data-card-type="todo">
+              <div class="card-header">
+                <h2>Todo List</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="todo-container">
+                  <div class="todo-form">
+                    <input type="text" id="todo-input" placeholder="Add a new task...">
+                    <button id="add-todo">Add</button>
+                  </div>
+                  <ul class="todo-list">
+                    <!-- Todo items will be inserted here by JavaScript -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cute Pet -->
+            <div id="cute-pet">
+              <img src="extra/p.png" alt="Cute Pet" id="pet-png">
+            </div>
+
+
+            <!-- Calendar Card -->
+            <div class="card" data-card-type="calendar">
+              <div class="card-header">
+                <h2>Calendar</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="calendar-container">
+                  <div class="calendar-header">
+                    <button id="prev-month">&lt;</button>
+                    <h3 id="current-month">January 2023</h3>
+                    <button id="next-month">&gt;</button>
+                  </div>
+                  <div class="calendar-grid">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                    <!-- Calendar days will be inserted here by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timer Card -->
+            <audio id="timer-audio">
+              <source src="extra/morning_alarm.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            
+
+            <div class="card" data-card-type="timer">
+              <div class="card-header">
+                <h2>Timer</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="timer-container">
+                  <div class="timer-display">25:00</div>
+                  <div class="timer-controls">
+                    <button id="timer-start">Start</button>
+                    <button id="timer-pause" disabled>Pause</button>
+                    <button id="timer-reset">Reset</button>
+                  </div>
+                  <div class="timer-type">
+                    <button class="timer-type-btn active" data-time="25">Pomodoro</button>
+                    <button class="timer-type-btn" data-time="5">Short Break</button>
+                    <button class="timer-type-btn" data-time="15">Long Break</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clock Card -->
+            <div class="card" data-card-type="clock">
+              <div class="card-header">
+                <h2>Clock</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="clock-container">
+                  <div class="digital-clock" id="digital-clock">00:00:00</div>
+                  <div class="timezone-select">
+                    <select id="timezone-selector">
+                      <option value="local">Local Time</option>
+                      <option value="UTC">UTC</option>
+                      <option value="America/New_York">New York</option>
+                      <option value="Europe/London">London</option>
+                      <option value="Asia/Tokyo">Tokyo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Days Counter Card -->
+            <div class="card" data-card-type="counter">
+              <div class="card-header">
+                <h2>Days Counter</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="counter-container">
+                  <div class="counter-form">
+                    <input type="text" id="event-name" placeholder="Event name">
+                    <input type="date" id="event-date">
+                    <button id="add-event">Add</button>
+                  </div>
+                  <div class="counter-list">
+                    <!-- Event counters will be inserted here by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Daily Planner Card -->
+            <div class="card" data-card-type="planner">
+              <div class="card-header">
+                <h2>Daily Planner</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="planner-container">
+                  <div class="planner-date">
+                    <h3 id="current-date">Today's Date</h3>
+                  </div>
+                  <div class="planner-schedule">
+                    <!-- Schedule will be inserted here by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notes Card -->
+            <div class="card" data-card-type="notes">
+              <div class="card-header">
+                <h2>Notes</h2>
+                <button class="expanda-btn" aria-label="expand">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 3 6 6m0-6-6 6"></path>
+                    <path d="M10 21v-6a2 2 0 0 0-2-2H4"></path>
+                    <path d="M14 15v6m-4-5 4 4m0-4-4 4"></path>
+                  </svg>
+                </button>
+              </div>
+            
+              <div class="card-body">
+                <div class="notes-container">
+                  <div class="notes-list">
+                    <!-- Notes will be inserted here by JavaScript -->
+                  </div>
+            
+                  <div class="notes-form">
+                    <textarea id="note-content" placeholder="Write a note..."></textarea>
+                    <div class="note-colors">
+                      <button class="color-btn" data-color="#ffcccc"></button>
+                      <button class="color-btn" data-color="#ffffcc"></button>
+                      <button class="color-btn" data-color="#ccffcc"></button>
+                      <button class="color-btn" data-color="#ccccff"></button>
+                    </div>
+                    <button id="add-note">Add Note</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Note Popup Modal (For Viewing Notes) -->
+            <div id="note-modal" class="note-modal">
+              <div class="note-modal-content">
+                <span id="note-modal-close" class="note-modal-close">&times;</span>
+                <p id="modal-text"></p>
+              </div>
+            </div>
+            
+
+            <!-- Motivational Quotes Widget -->
+            <div class="card" data-card-type="motivational">
+              <div class="card-header">
+                <h2>Motivational Quotes</h2>
+                <button class="expanda-btn" aria-label="expanda">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 3 6 6m0-6-6 6"></path><path d="M10 21v-6a2 2 0 0 0-2-2H4"></path><path d="M14 15v6m-4-5 4 4m0-4-4 4"></path></svg>
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="quotes-container">
+                  <!-- Quotes will be inserted here by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Modal for expandaed cards -->
+      <div class="modal" id="card-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modal-title">Card Title</h2>
+            <button class="close-modal" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            <!-- Modal content will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="src/js/image.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/theme.js"></script>
+    <script src="src/js/modal.js"></script>
+    <script src="src/js/todo.js"></script>
+    <script src="src/js/calendar.js"></script>
+    <script src="src/js/timer.js"></script>
+    <script src="src/js/clock.js"></script>
+    <script src="src/js/counter.js"></script>
+    <script src="src/js/planner.js"></script>
+    <script src="src/js/notes.js"></script>
+    <script src="src/js/pet.js"></script>
+  </body>
+</html>

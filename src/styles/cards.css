@@ -1,0 +1,624 @@
+/* Card Styles */
+.card {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: scaleIn 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .card-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .card-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .expanda-btn {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  
+  .expanda-btn:hover {
+    opacity: 1;
+  }
+  
+  .card-body {
+    padding: 1rem;
+    min-height: 200px;
+  }
+  
+  /* Todo Card Styles */
+  .todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .todo-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .todo-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  .todo-form button, .todo-item button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+  }
+  
+  .todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--secondary);
+    border-radius: var(--radius);
+    animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .todo-item.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+  
+  .todo-item-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 4px;
+    border: 1px solid var(--input);
+    background-color: var(--background);
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .todo-item-checkbox:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  .todo-item-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: var(--primary-foreground);
+    font-size: 0.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .todo-item-text {
+    flex: 1;
+  }
+  
+  .todo-item-delete {
+    background: none !important;
+    border: none;
+    color: var(--destructive) !important;
+    padding: 0.25rem !important;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  
+  /* Calendar Card Styles */
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .calendar-header button {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    font-size: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .weekday {
+    text-align: center;
+    font-weight: 500;
+    padding: 0.5rem;
+  }
+  
+  .calendar-day {
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: var(--radius);
+  }
+  
+  .calendar-day:hover {
+    background-color: var(--muted);
+  }
+  
+  .calendar-day.today {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  
+  .calendar-day.has-event {
+    position: relative;
+  }
+  
+  .calendar-day.has-event::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary);
+  }
+  
+  /* Timer Card Styles */
+  .timer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .timer-display {
+    font-size: 3rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.05em;
+  }
+  
+  .timer-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .timer-controls button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+  }
+  
+  .timer-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .timer-type {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .timer-type-btn {
+    padding: 0.25rem 0.5rem;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  
+  .timer-type-btn.active {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  
+  /* Clock Card Styles */
+  .clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .digital-clock {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.05em;
+  }
+  
+  .timezone-select select {
+    padding: 0.5rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  /* Days Counter Card Styles */
+  .counter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .counter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .counter-form input {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.5rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  .counter-form button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+  }
+  
+  .counter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .counter-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--secondary);
+    border-radius: var(--radius);
+    animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .counter-item-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .counter-item-name {
+    font-weight: 500;
+  }
+  
+  .counter-item-date {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+  
+  .counter-item-days {
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: var(--radius);
+  }
+  
+  /* Daily Planner Card Styles */
+  .current-date {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .planner-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+  }
+  
+  .planner-date {
+    text-align: center;
+  }
+  
+  .planner-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+    max-height: 300px; /* Limit height to create scrollable area */
+    padding-right: 0.5rem; /* Space for scrollbar */
+  }
+  .scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) transparent;
+  }
+  
+  .scrollable::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollable::-webkit-scrollbar-thumb {
+    background-color: var(--muted);
+    border-radius: 3px;
+  }
+  
+  .schedule-item {
+    display: flex;
+    padding: 0.75rem;
+    background-color: var(--secondary);
+    border-radius: var(--radius);
+    animation: slideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .schedule-time {
+    width: 4rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .schedule-content {
+    text-align: center;
+    background-color:rgba(166, 166, 166, 0.226);
+    border-radius: 10px;
+    flex: 1;
+    min-height: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .schedule-content:hover {
+    background-color: rgba(193, 189, 189, 0.409);
+    border-radius: 20px;
+    border-radius: var(--radius);
+  }
+  
+  .schedule-edit-input {
+    width: 100%;
+    padding: 1.0rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  .add-schedule-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+  
+  .time-picker {
+    position: relative;
+  }
+  
+  .time-input {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+    width: 120px;
+  }
+  
+  #schedule-content {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  #add-schedule {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  
+  /* Make card body content scrollable when in modal */
+  #modal-body .planner-schedule {
+    max-height: 50vh; /* Taller in modal view */
+  }
+  
+  /* Add hover styles to enhance the expanda button user experience */
+  .expanda-btn {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    opacity: 0.5;
+    transition: opacity 0.2s, transform 0.2s;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius);
+  }
+  
+  .expanda-btn:hover {
+    opacity: 1;
+    background-color: var(--secondary);
+    transform: scale(1.1);
+  }
+  
+  /* Notes Card Styles */
+  .notes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-height: 150px; /* Set a fixed height for the notes list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 5px; /* Prevent content from touching scrollbar */
+  }
+  
+  /* Optional: Custom Scrollbar (for better look) */
+  .notes-list::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .notes-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .notes-list::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  
+  .note-item {
+    padding: 0.75rem;
+    min-height: 100px;
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    animation: scaleIn 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .note-item-content {
+    font-size: 20px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
+  .note-item-delete {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  
+  .notes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .notes-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.5rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+    resize: vertical;
+  }
+  
+  .note-colors {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .color-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    cursor: pointer;
+  }
+  
+  .notes-form button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 500;
+  }
+  
+  /* Modal styles */
+ /* Note Modal Popup */
+.note-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.note-modal-content {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.note-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}

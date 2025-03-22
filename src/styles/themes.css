@@ -1,0 +1,103 @@
+/* Theme Variables */
+
+  .theme-purple {
+    --background: #f5f3ff;
+    --foreground: #4c1d95;
+    --card: #ffffff;
+    --card-foreground: #4c1d95;
+    --primary: #8b5cf6;
+    --primary-foreground: #ffffff;
+    --secondary: #ede9fe;
+    --secondary-foreground: #4c1d95;
+    --muted: #ede9fe;
+    --muted-foreground: #6d28d9;
+    --accent: #ede9fe;
+    --accent-foreground: #4c1d95;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #ddd6fe;
+    --input: #ddd6fe;
+    --ring: #8b5cf6;
+  }
+  
+  .theme-blue {
+    --background: #eff6ff;
+    --foreground: #1e3a8a;
+    --card: #ffffff;
+    --card-foreground: #1e3a8a;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --secondary: #dbeafe;
+    --secondary-foreground: #1e3a8a;
+    --muted: #dbeafe;
+    --muted-foreground: #1d4ed8;
+    --accent: #dbeafe;
+    --accent-foreground: #1e3a8a;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #bfdbfe;
+    --input: #bfdbfe;
+    --ring: #3b82f6;
+}
+
+.theme-green {
+  --background: #ecfdf5;
+  --foreground: #065f46;
+  --card: #ffffff;
+  --card-foreground: #065f46;
+  --primary: #10b981;
+  --primary-foreground: #ffffff;
+  --secondary: #d1fae5;
+  --secondary-foreground: #065f46;
+  --muted: #d1fae5;
+  --muted-foreground: #047857;
+  --accent: #d1fae5;
+  --accent-foreground: #065f46;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #a7f3d0;
+  --input: #a7f3d0;
+  --ring: #10b981;
+}
+
+  
+  .theme-orange {
+    --background: #fff7ed;
+    --foreground: #9a3412;
+    --card: #ffffff;
+    --card-foreground: #9a3412;
+    --primary: #f97316;
+    --primary-foreground: #ffffff;
+    --secondary: #fed7aa;
+    --secondary-foreground: #9a3412;
+    --muted: #fed7aa;
+    --muted-foreground: #c2410c;
+    --accent: #fed7aa;
+    --accent-foreground: #9a3412;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #fdba74;
+    --input: #fdba74;
+    --ring: #f97316;
+  }
+  
+  .theme-dark-blue {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+    --card: #1e293b;
+    --card-foreground: #e2e8f0;
+    --primary: #38bdf8;
+    --primary-foreground: #0f172a;
+    --secondary: #334155;
+    --secondary-foreground: #e2e8f0;
+    --muted: #334155;
+    --muted-foreground: #94a3b8;
+    --accent: #334155;
+    --accent-foreground: #e2e8f0;
+    --destructive: #ef4444;
+    --destructive-foreground: #e2e8f0;
+    --border: #334155;
+    --input: #334155;
+    --ring: #38bdf8;
+  }
+  

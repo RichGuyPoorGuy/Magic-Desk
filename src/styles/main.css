@@ -128,35 +128,42 @@
     position: relative;
   }
   
-  .theme-popup {
+.theme-popup {
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 240px;
+    top: 50%;
+    left: -360px; /* Moves popup to the left of the button, adjust as needed */
+    width: auto; /* Adjust width dynamically */
     background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1rem;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    padding: 0.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
     z-index: 100;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-  }
-  
-  .theme-popup.show {
+    transform: translateX(-10px) translateY(-50%);
+    transition: opacity 0.2s ease, 
+                transform 0.2s ease, 
+                visibility 0.2s;
+    display: flex; /* Arrange options in a row */
+    gap: 0.5rem; /* Space between options */
+    align-items: center;
+}
+
+.theme-popup.show {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .theme-selector {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
+    transform: translateX(0) translateY(-50%);
+}
+
+.theme-selector {
+    display: flex; /* Change from grid to flexbox */
+    gap: 0.5rem; /* Space between options */
+    margin-bottom: 0; /* Remove bottom margin */
+    align-items: center; /* Align items properly */
+    justify-content: center; /* Center the options */
+}
   
   .theme-swatch {
     width: 40px;

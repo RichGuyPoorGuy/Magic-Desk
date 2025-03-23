@@ -592,6 +592,7 @@
   
   /* Modal styles */
  /* Note Modal Popup */
+/* Modal Background */
 .note-modal {
   display: none;
   position: fixed;
@@ -601,24 +602,35 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Modal Container */
 .note-modal-content {
   background: rgb(255, 255, 255);
   padding: 20px;
   border-radius: 8px;
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
+  width: 80%;
+  height: 80%;
+  max-width: 800px; /* Adjust for responsiveness */
+  max-height: 90vh; /* Ensures it doesn't exceed screen height */
+  overflow-y: auto; /* Enables scrolling */
   position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Close Button */
 .note-modal-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 20px;
   font-size: 24px;
   cursor: pointer;
+  color: #333;
+}
+
+.note-modal-close:hover {
+  color: red;
 }
